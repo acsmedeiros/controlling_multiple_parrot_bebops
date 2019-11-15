@@ -67,7 +67,9 @@ In order to launch the drones we are going to need to modify the original */bebo
 
 You can have a separate launch file for each bebop. Modify this launch file with the correct ip address for each drone.
 
-This repository provides two separate launch files for drones A and B, and a simple routine that can make those drones go up, down, left, right and round about, simultaneously.
+This repository provides, as an example, [two](https://github.com/acsmedeiros/controlling_multiple_parrot_bebops/tree/master/launch_for%20bebop_autonomy) separate launch files for drones A and B, and a simple [routine](https://github.com/acsmedeiros/controlling_multiple_parrot_bebops/blob/master/src/move_two_bebop2.cpp) that can make those drones go up, down, left, right and round about, simultaneously.
+
+If you are gonna use the launch files here, remember to change the IP address accordingly.
 
 To run the code here just:
 
@@ -75,6 +77,8 @@ To run the code here just:
 
 
 A video showcasing the code in use can be found here: https://youtu.be/slre7MKHVYc
+
+
 
 
 
