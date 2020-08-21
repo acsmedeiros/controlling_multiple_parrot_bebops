@@ -25,8 +25,7 @@ sudo apt-get install android-tools-adb
 adb connect 192.168.43.1:9050
 ```
 
-
-It should state something like "connected to 192.168.43.1:9050", if the connection was not estabilished try pushing bebop 2 power button 4 times again, sometimes thats tricky.
+It should state something like "connected to 192.168.43.1:9050" if the connection was not established, try pushing bebop2's power button 4 times again, sometimes that's tricky.
 Once your connection was stabilished you can copy the "bebop2_update.plf" to the drone's update/ folder:
 
 ```bash
@@ -35,7 +34,7 @@ adb push path/to/bebop2_update.plf /update/
 ```
 
 
-Okay now lets use telnet to connect to the drone and make the change in the firmware version. **Make sure the drone has a full battery**
+Okay, now lets use telnet to connect to the drone and make the change in the firmware version. **Make sure the drone has a full battery**
 
 ```bash
 telnet 192.168.43.1
@@ -53,8 +52,8 @@ Congrats, now you have firmware 3.3.0 installed!
 ### Installing wpa_supplicant files to bebop 2 (so it can connect to the router)
 
 Credits to [this](https://github.com/tnaegeli/multiple_bebops.git) repository. Just go [there](https://github.com/tnaegeli/multiple_bebops.git) and download the files and follow their instructions, should work fine.
-Just make sure to edit the shortpress_3.sh file to contain the **desired IP for your drone**, **SSID** and **Password** of your router wifi network.
-Also make sure to set up the desired IP on shortpress_5.sh.
+Just make sure to edit the shortpress_3.sh file to contain the **desired IP for your drone**, **SSID**, and **Password** of your router wifi network.
+Also, make sure to set up the desired IP on shortpress_5.sh.
 
 If you have some troubles here, a good way to troubleshoot is to:
 ```bash
@@ -63,26 +62,24 @@ mount -o remount,rm /
 cd /bin/onoffbutton
 vi shortpress_3.sh
 ```
-
-
 You can then edit the shortpress_3.sh file directly, a suggestion is to drop the -B flag from "wpa_supplicant -B -D wext -i eth0 -c /etc/wpa_supplicant.conf" therefore you can see the output from this command.
 
-Still connected to the drone's telnet you can just ./shortpress_3.sh and check the output for any errors.
+Still connected to the drone's telnet, you can ./shortpress_3.sh and check the output for any errors.
 
 Dont know how to edit files with "vi" ? check [here](https://staff.washington.edu/rells/R110/).
 
 ## Using ROS to connect to multiple drones
 
-Now you should have one or more drones connect to your local network, make sure each drone has a **unique IP** address.
+Now you should have one or more drones connect to your local network. Make sure each drone has a **unique IP** address.
 Now download [bebop_autonomy](https://bebop-autonomy.readthedocs.io/en/latest/) from [this](https://github.com/AutonomyLab/bebop_autonomy.git) repository.
 
 In order to launch the drones we are going to need to modify the original */bebop_autonomy/bebop_driver/launch/bebop_node.launch* file.
 
 You can have a separate launch file for each bebop. Modify this launch file with the correct ip address for each drone.
 
-This repository provides, as an example, [two](https://github.com/acsmedeiros/controlling_multiple_parrot_bebops/tree/master/launch_for%20bebop_autonomy) separate launch files for drones A and B, and a simple [routine](https://github.com/acsmedeiros/controlling_multiple_parrot_bebops/blob/master/src/move_two_bebop2.cpp) that can make those drones go up, down, left, right and round about, simultaneously.
+This repository provides, as an example, [two](https://github.com/acsmedeiros/controlling_multiple_parrot_bebops/tree/master/launch_for%20bebop_autonomy) separate launch files for drones A and B, and a simple [routine](https://github.com/acsmedeiros/controlling_multiple_parrot_bebops/blob/master/src/move_two_bebop2.cpp) that can make those drones go up, down, left, right and roundabout, simultaneously.
 
-If you are gonna use the launch files here, remember to change the IP address accordingly.
+If you are going to use the launch files here, remember to change the IP address accordingly.
 
 To run the code here just:
 ```bash
